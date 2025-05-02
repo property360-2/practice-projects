@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Password Generator</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <!-- this project is created to practice DOM -->
+    <main>
+        <h1>Password Generator</h1>
+        <form aria-labelledby="password-instructions">
+            <p id="password-instructions">
+                Tell me how long you want your password to be.
+                <strong>It should be between 8 to 25 characters.</strong>
+            </p>
+
+            <label for="length">Password length:</label>
+            <input type="number" name="length" id="length" min="8" max="25" required
+                aria-describedby="password-instructions" />
+
+            <button type="submit" id="confirm">Confirm</button>
+        </form>
+
+        <p id="result" aria-live="polite"></p>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

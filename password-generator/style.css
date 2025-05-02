@@ -1,0 +1,65 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: chocolate;
+}
+
+main {
+    max-width: 800px;
+    min-width: 400px;
+    margin: 50px auto;
+    padding: 50px 20px;
+    border: 1px solid black;
+    border-radius: 15px;
+    height: auto;
+}
+
+h1 {
+    text-align: center;
+    font-weight: 900;
+    font-size: 3rem;
+}
+
+p {
+    font-weight: 600;
+    font-size: 1.3rem;
+}
+
+strong {
+    font-weight: 800;
+}
+
+input[type="number"] {
+    height: 35px;
+    width: 300px;
+    font-size: 1.105rem;
+    border-radius: 5px;
+    border: 2px solid black;
+}
+
+button {
+    height: 40px;
+    font-size: 1.105rem;
+    border-radius: 5px;
+    border: 2px solid black;
+}
+
+button:hover {
+    background-color: rgb(143, 68, 15);
+}
+
+/* to do add class .result class in #result */
+.success-result {
+    background-color: rgba(0, 128, 0, 0.562);
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 3px 5px;
+    width: auto;
+}
+
+.failed-result {
+    background-color: rgb(173, 8, 8);
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 3px 5px;
+    width: auto;
+}
