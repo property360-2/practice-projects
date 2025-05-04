@@ -1,0 +1,156 @@
+/* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Main container */
+main {
+    width: 100%;
+    max-width: 600px;
+    padding: 24px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Email masker section */
+.email-masker {
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 16px;
+    font-size: 26px;
+    color: #333;
+}
+
+p {
+    font-size: 16px;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+/* Input and button */
+input[type="email"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 16px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 24px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+/* Dialog styles */
+dialog#masked-email-dialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0; /* Important: prevents offset from browser's default dialog margin */
+    padding: 24px;
+    background-color: white;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+    z-index: 1000; /* optional, helps in weird stacking cases */
+}
+
+
+dialog::backdrop {
+    background: rgba(0, 0, 0, 0.4);
+}
+
+
+#masked-email-dialog h2 {
+    font-size: 22px;
+    margin-bottom: 12px;
+    color: #222;
+}
+
+#masked-email {
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #444;
+}
+
+#close-dialog-button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    border: none;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+#close-dialog-button:hover {
+    background-color: #0056b3;
+}
+
+/* Visually hidden but accessible */
+.sr-only {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+/* Responsive layout */
+@media (max-width: 480px) {
+    main {
+        padding: 16px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    input[type="email"], button {
+        font-size: 14px;
+    }
+
+    #masked-email-dialog h2 {
+        font-size: 20px;
+    }
+
+    #masked-email {
+        font-size: 16px;
+    }
+}
