@@ -13,7 +13,8 @@
             <img src="https://cdn.freecodecamp.org/curriculum/labs/storm-thumbnail.jpg" alt="Storm" class="image-selector">
             <img src="https://cdn.freecodecamp.org/curriculum/labs/trees-thumbnail.jpg" alt="Trees" class="image-selector">
         </div>
-        <dialog id="image-preview">
+        <dialog id="image-preview" aria-labelledby="image-preview-title">
+            <h2 id="image-preview-title" class="sr-only">Full Image Preview</h2>
             <img id="full-image-src" src="" alt="Full Image">
             <button id="close-button">Close</button>
         </dialog>
