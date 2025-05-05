@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lakers Team Cards</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <h1 class="title" tabindex="0">Lakers Team Stats</h1>
+    <main>
+        <div class="team-stats">
+            <p>Team: <span id="team" aria-labelledby="team">Los Angeles Lakers</span></p>
+            <p>Season: <span id="season" aria-labelledby="season">2024-2025</span></p>
+            <p>Head Coach: <span id="head-coach" aria-labelledby="head-coach">Darvin Ham</span></p>
+        </div>
+
+        <label class="options-label" for="positions" id="filter-label">Filter Players by Position:</label>
+        
+        <select name="positions" id="positions" aria-labelledby="filter-label" role="combobox">
+            <option value="all" aria-label="Show all players">All Players</option>
+            <option value="guard" aria-label="Show only guards">Guard</option>
+            <option value="forward" aria-label="Show only forwards">Forward</option>
+            <option value="center" aria-label="Show only centers">Center</option>
+        </select>
+
+        <div class="cards" id="player-cards" role="region" aria-live="polite">
+        </div>
+    </main>
+    
+    <footer role="contentinfo" aria-label="Website footer">&copy; NBA 2025</footer>
+</body>
+<script src="script.js"></script>
+</html>
