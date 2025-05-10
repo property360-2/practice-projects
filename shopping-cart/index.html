@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Shopping Cart Debug Practice</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <h1>🛒 Shopping Cart</h1>
+
+    <div class="products">
+        <div class="product">
+            <span>Apple - $2</span>
+            <button onclick="addToCart('apple', 2)">Add to Cart</button>
+        </div>
+        <div class="product">
+            <span>Banana - $1</span>
+            <button onclick="addToCart('banana', 1)">Add to Cart</button>
+        </div>
+        <div class="product">
+            <span>Orange - $3</span>
+            <button onclick="addToCart('orange', 3)">Add to Cart</button>
+        </div>
+    </div>
+
+    <h2>Your Cart</h2>
+    <ul id="cart"></ul>
+    <h3>Total: $<span id="total">0</span></h3>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

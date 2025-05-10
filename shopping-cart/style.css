@@ -1,0 +1,23 @@
+body {
+    font-family: sans-serif;
+    padding: 20px;
+    background: #f4f4f4;
+}
+
+.products {
+    display: flex;
+    gap: 20px;
+}
+
+.product {
+    background: white;
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+@media screen and (max-width: 600px) {
+    .products {
+        flex-direction: column;
+    }
+    
+}
