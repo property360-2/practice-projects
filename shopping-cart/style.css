@@ -1,23 +1,36 @@
 body {
-    font-family: sans-serif;
-    padding: 20px;
+    font-family: Arial;
     background: #f4f4f4;
-}
-
-.products {
-    display: flex;
-    gap: 20px;
-}
-
-.product {
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  .container {
     background: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    margin: auto;
+    box-shadow: 0 0 10px gray;
+  }
+  
+  input {
+    width: 70%;
     padding: 10px;
-    border: 1px solid #ddd;
-}
-
-@media screen and (max-width: 600px) {
-    .products {
-        flex-direction: column;
-    }
-    
-}
+  }
+  
+  button {
+    padding: 10px;
+    margin-left: 5px;
+  }
+  
+  li {
+    text-align: left;
+    margin-top: 10px;
+  }
+  
+  .done {
+    text-decoration: line-through;
+    color: gray;
+  }
+  

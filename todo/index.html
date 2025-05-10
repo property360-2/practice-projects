@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main class="container" role="main">
+        <h1>To-Do List</h1>
+
+        <form id="taskForm" aria-label="Add new task">
+            <label for="taskInput">Task:</label>
+            <input type="text" id="taskInput" name="taskInput" placeholder="Enter a task" aria-required="true">
+            <button type="submit" id="addButton">Add</button>
+        </form>
+
+        <section aria-labelledby="taskListHeading">
+            <h2 id="taskListHeading" class="visually-hidden">Task List</h2>
+            <ul id="taskList" aria-live="polite"></ul>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
