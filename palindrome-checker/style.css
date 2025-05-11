@@ -1,0 +1,115 @@
+:root {
+    --primaryColor: #1E1E1E;
+    --SecondaryColor: #2A2A2A;
+    --Text: #FFFFFF;
+    --SecondaryText: #B0B0B0;
+    --AccentColor: #FF6F61;
+    --buttonHoverColor: #be544b;
+    --descriptionColor: #4CAF50;
+    --errorColor: #FF0000;
+}
+
+body {
+    background-color: var(--primaryColor);
+    color: var(--Text);
+    max-width: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 15px;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    margin: 15px auto;
+    height: 100vh;
+    max-width: 500px;
+}
+
+main .heading {
+    font-size: 2.5rem;
+}
+
+main .input-output {
+    background-color: var(--SecondaryColor);
+    padding: 15px;
+    width: 100%;
+    height: auto;
+    font-size: 1.8rem;
+    border-radius: 15px;
+}
+
+main .input-output label {
+    display: block;
+    text-align: center;
+}
+
+main .input-output #text-input {
+    width: 70%;
+    margin-left: 5%;
+    border-radius: 5px;
+    height: 30px;
+    font-size: 1.05rem;
+    padding: 5px;
+    outline: none;
+}
+
+main .input-output #text-input:focus {
+    border: 2px solid var(--AccentColor);
+}
+
+main .input-output #check-btn {
+    background-color: var(--AccentColor);
+    color: var(--Text);
+    height: 40px;
+    width: 20%;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+main .input-output #check-btn:hover {
+    background-color: var(--primaryColor);
+    color: var(--buttonHoverColor);
+    transition: 0.2s ease;
+}
+
+main .input-output #result {
+    text-align: center;
+    font-size: 1.5rem;
+    color: var(--descriptionColor);
+    margin-top: 10px;
+}
+
+main .description {
+    background-color: var(--buttonHoverColor);
+    width: 100%;
+    margin: 15px;
+    padding: 15px;
+    border-radius: 15px;
+    font-size: 1.05rem;
+}
+
+.error-message {
+    color: var(--errorColor);
+    font-size: 1.2rem;
+    text-align: center;
+    display: none;
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
