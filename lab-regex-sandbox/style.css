@@ -1,0 +1,199 @@
+/* Reset */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --dark-bg: #1f1f1f;
+    --light-bg: #2b2b2b;
+    --primary-color: #4caf50;
+    --accent-color: #ff9800;
+    --highlight-color: #2196f3;
+    --text-color: #f1f1f1;
+    --border-color: #444;
+    --input-bg: #333;
+    --input-text: #f1f1f1;
+    --button-bg: #4caf50;
+    --button-hover-bg: #388e3c;
+    --placeholder-color: #bbb;
+    --font-size: 1rem;
+    --padding: 1rem;
+}
+
+/* General Styles */
+body {
+    font-family: 'Helvetica', Arial, sans-serif;
+    background-color: var(--dark-bg);
+    color: var(--text-color);
+    font-size: var(--font-size);
+    line-height: 1.6;
+    padding: 2rem;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+h1 {
+    font-size: 2.2rem;
+    color: var(--primary-color);
+}
+
+/* Form Styling */
+#regex-container,
+#test-container,
+#result-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: var(--padding);
+    background-color: var(--light-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+}
+
+#regex-container label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+#pattern-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#pattern-container span {
+    font-size: 1.2rem;
+    color: var(--accent-color);
+}
+
+#pattern {
+    font-size: 1.1rem;
+    border: 1px solid var(--border-color);
+    padding: 0.5rem;
+    border-radius: 4px;
+    width: 80%;
+    background-color: var(--input-bg);
+    color: var(--input-text);
+}
+
+#pattern:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+#flags-container {
+    display: flex;
+    gap: 1rem;
+    color: var(--text-color);
+}
+
+#flags-container fieldset {
+    border: none;
+    padding: 0;
+}
+
+#test-string {
+    background-color: var(--input-bg);
+    color: var(--input-text);
+    padding: 1rem;
+    min-height: 120px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 1.1rem;
+    overflow-wrap: break-word;
+}
+
+button {
+    width: auto; /* Adjust width to content */
+    padding: 0.6rem 1.5rem; /* Smaller padding */
+    background-color: var(--button-bg);
+    color: var(--text-color);
+    border: none;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: background-color 0.3s ease;
+    text-align: center;
+    display: inline-block; /* Allows centering */
+    margin-left: auto;  /* Centers it horizontally */
+    margin-right: auto; /* Centers it horizontally */
+}
+
+#test-btn {
+    display: block; /* Ensures the button itself is block level to occupy the full width */
+    margin-left: auto;  /* Centers it horizontally */
+    margin-right: auto; /* Centers it horizontally */
+}
+
+button:hover {
+    background-color: var(--button-hover-bg);
+}
+
+
+#result-container {
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+#result {
+    background-color: var(--input-bg);
+    padding: 1rem;
+    border-radius: 4px;
+    min-height: 4rem;
+    margin-top: 1rem;
+    color: var(--highlight-color);
+}
+
+/* Placeholder styling */
+[contenteditable=true]:empty:before {
+    content: attr(placeholder);
+    pointer-events: none;
+    color: var(--placeholder-color);
+}
+
+::placeholder {
+    color: var(--placeholder-color);
+}
+
+/* Accessibility */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+    clip-path: inset(50%);
+    overflow: hidden;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    body {
+        padding: 1rem;
+    }
+
+    #regex-container,
+    #test-container,
+    #result-container {
+        width: 100%;
+    }
+
+    #pattern {
+        width: 100%;
+    }
+
+    button {
+        width: 100%;
+    }
+}

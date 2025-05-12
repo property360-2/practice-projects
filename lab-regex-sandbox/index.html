@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Regex Sandbox</title>
+</head>
+
+<body>
+    <header>
+        <h1>Regex Sandbox</h1>
+    </header>
+
+    <main>
+        <section id="regex-container">
+            <label for="pattern">Regex Pattern:</label>
+            <div id="pattern-container">
+                <span>/</span>
+                <input type="text" id="pattern" name="pattern" placeholder="Enter your regex pattern"
+                    aria-describedby="pattern-description">
+                <span>/</span>
+            </div>
+            <p id="pattern-description" class="sr-only">Enter a regular expression pattern to match in the test string.
+            </p>
+            <div id="flags-container">
+                <fieldset>
+                    <legend>Flags:</legend>
+                    <label for="i">
+                        <input type="checkbox" name="flags" id="i"> i (Case-insensitive)
+                    </label>
+                    <label for="g">
+                        <input type="checkbox" name="flags" id="g"> g (Global match)
+                    </label>
+                </fieldset>
+            </div>
+        </section>
+
+        <section id="test-container">
+            <label for="test-string">Test String:</label>
+            <div id="test-string" contenteditable="true" aria-placeholder="Enter your test string" role="textbox"></div>
+        </section>
+
+        <button class="btn" id="test-btn" type="button">Test Regex</button>
+
+        <section id="result-container">
+            <h2>Result:</h2>
+            <p id="result" aria-live="polite"></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>Regex Sandbox &copy; 2025</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
