@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Markdown to HTML Converter</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <header>
+        <h1>Markdown to HTML Converter</h1>
+    </header>
+
+    <main id="container">
+        <section class="container">
+            <h2>Markdown Input</h2>
+            <label for="markdown-input" class="visually-hidden">Enter your markdown here</label>
+            <textarea id="markdown-input" placeholder="Enter your markdown here..."
+                aria-label="Markdown input"></textarea>
+        </section>
+
+        <section class="container">
+            <h2>Raw HTML Output</h2>
+            <div id="html-output" aria-label="Raw HTML output" role="region" tabindex="0"></div>
+        </section>
+
+        <section class="container">
+            <h2>HTML Preview</h2>
+            <div id="preview" aria-label="HTML preview" role="region" tabindex="0"></div>
+        </section>
+        <script src="https://cdn.jsdelivr.net/npm/marked@2.1.3/marked.min.js"></script>
+        <script src="script.js"></script>
+    </main>
+</body>
+
+</html>
