@@ -25,7 +25,15 @@
             <button type="submit" id="confirm">Confirm</button>
         </form>
 
-        <p id="result" aria-live="polite"></p>
+        <div class="line">
+            <p id="result" aria-live="polite"></p>
+            <button id="copy-btn" style="display: none;">Copy Password</button>
+        </div>
+
+        <div class="history">
+            <h2>Password History</h2>
+            <ul id="history-list"></ul>
+        </div>
     </main>
 
     <script src="script.js"></script>

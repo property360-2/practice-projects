@@ -1,65 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+:root {
+    --bg: #0f172a;
+    --card-bg: #1e293b;
+    --primary: #6366f1;
+    --primary-dark: #4f46e5;
+    --text: #f1f5f9;
+    --success: #24e96f;
+    --fail: #e94f4f;
+    --success-bg: #22c55e33;
+    --fail-bg: #ef444433;
+}
+
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: chocolate;
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
 }
 
 main {
-    max-width: 800px;
-    min-width: 400px;
-    margin: 50px auto;
-    padding: 50px 20px;
-    border: 1px solid black;
-    border-radius: 15px;
-    height: auto;
+    background-color: var(--card-bg);
+    padding: 40px 30px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    max-width: 420px;
+    width: 100%;
 }
 
 h1 {
     text-align: center;
-    font-weight: 900;
-    font-size: 3rem;
+    margin-bottom: 24px;
+    font-size: 2rem;
+    font-weight: 700;
 }
 
 p {
-    font-weight: 600;
-    font-size: 1.3rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 16px;
 }
 
-strong {
-    font-weight: 800;
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
 }
 
 input[type="number"] {
-    height: 35px;
-    width: 300px;
-    font-size: 1.105rem;
-    border-radius: 5px;
-    border: 2px solid black;
+    padding: 10px 12px;
+    font-size: 1rem;
+    border: 2px solid #334155;
+    border-radius: 8px;
+    background-color: #0f172a;
+    color: var(--text);
+    transition: border-color 0.3s;
+}
+
+input[type="number"]:focus {
+    outline: none;
+    border-color: var(--primary);
 }
 
 button {
-    height: 40px;
-    font-size: 1.105rem;
-    border-radius: 5px;
-    border: 2px solid black;
+    padding: 10px;
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 button:hover {
-    background-color: rgb(143, 68, 15);
+    background-color: var(--primary-dark);
 }
 
-/* to do add class .result class in #result */
+.line {
+    margin-top: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+#result {
+    flex: 1;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: 500;
+}
+
 .success-result {
-    background-color: rgba(0, 128, 0, 0.562);
-    border: 2px solid black;
-    border-radius: 5px;
-    padding: 3px 5px;
-    width: auto;
+    background-color: var(--success-bg);
+    color: var(--success);
+    border: 1px solid var(--success);
 }
 
 .failed-result {
-    background-color: rgb(173, 8, 8);
-    border: 2px solid black;
-    border-radius: 5px;
-    padding: 3px 5px;
-    width: auto;
+    background-color: var(--fail-bg);
+    color: var(--fail);
+    border: 1px solid var(--fail);
+}
+
+#copy-btn {
+    white-space: nowrap;
+    padding: 10px 12px;
+    font-size: 0.95rem;
+    background-color: #10b981;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#copy-btn:hover {
+    background-color: #059669;
+}
+
+.history {
+    margin-top: 30px;
+}
+
+.history h2 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+#history-list {
+    list-style: none;
+    padding: 0;
+    max-height: 200px;
+    overflow-y: auto;
+    border-top: 1px solid #334155;
+}
+
+#history-list li {
+    padding: 6px 10px;
+    border-bottom: 1px solid #334155;
+    font-family: monospace;
+    font-size: 0.95rem;
+    color: #e2e8f0;
+    word-break: break-word;
 }
