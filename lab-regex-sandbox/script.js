@@ -18,38 +18,53 @@ function getFlags() {
     return flags;
 }
 
-// Function to handle the testing of the regex
 function testRegex() {
     const pattern = regexPattern.value;
     const testString = stringToTest.textContent.trim();
     const flags = getFlags();
 
     try {
-        const regex = new RegExp(pattern, flags); // Create the regex with the selected flags
-        const matches = testString.match(regex); // Find matches
+        const regex = new RegExp(pattern, flags);
+        const matches = [...testString.matchAll(regex)];
 
         // Clear previous result and highlight
         testResult.innerHTML = '';
-        stringToTest.innerHTML = testString;
+        stringToTest.innerHTML = '';
 
-        if (matches) {
-            // Highlight each match
-            let highlightedText = testString.replace(regex, (match) => {
-                return `<span class="highlight">${match}</span>`;
+        if (matches.length > 0) {
+            let lastIndex = 0;
+
+            matches.forEach(match => {
+                const start = match.index;
+                const end = start + match[0].length;
+
+                // Add text before match
+                stringToTest.append(document.createTextNode(testString.slice(lastIndex, start)));
+
+                // Create and add highlighted match
+                const span = document.createElement('span');
+                span.classList.add('highlight');
+                span.textContent = match[0];
+                stringToTest.append(span);
+
+                lastIndex = end;
             });
-            stringToTest.innerHTML = highlightedText;
 
-            // Display the result in the #result element
-            testResult.textContent = matches.join(', ');
+            // Add remaining text after last match
+            stringToTest.append(document.createTextNode(testString.slice(lastIndex)));
+
+            // Show matches in result
+            testResult.textContent = matches.map(m => m[0]).join(', ');
         } else {
-            // No match found
             testResult.textContent = 'No match';
+            stringToTest.textContent = testString;
         }
     } catch (error) {
-        // If there's an invalid regex
         testResult.textContent = 'Invalid regex pattern';
+        stringToTest.textContent = testString;
     }
 }
+
 
 // Add event listener to the test button
 testButton.addEventListener('click', testRegex);
