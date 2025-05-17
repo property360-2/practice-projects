@@ -1,125 +1,93 @@
-const playlistSongs = document.getElementById("playlist-songs");
-const playButton = document.getElementById("play");
-const pauseButton = document.getElementById("pause");
-const nextButton = document.getElementById("next");
-const previousButton = document.getElementById("previous");
-const allSongs = [
-    {
-        id: 0,
-        title: "Scratching The Surface",
-        artist: "Quincy Larson",
-        duration: "4:25",
-        src: "https://cdn.freecodecamp.org/curriculum/js-music-player/scratching-the-surface.mp3",
-    },
-    {
-        id: 1,
-        title: "Can't Stay Down",
-        artist: "Quincy Larson",
-        duration: "4:15",
-        src: "https://cdn.freecodecamp.org/curriculum/js-music-player/can't-stay-down.mp3",
-    },
-    {
-        id: 2,
-        title: "Still Learning",
-        artist: "Quincy Larson",
-        duration: "3:51",
-        src: "https://cdn.freecodecamp.org/curriculum/js-music-player/still-learning.mp3",
-    },
-    {
-        id: 3,
-        title: "Cruising for a Musing",
-        artist: "Quincy Larson",
-        duration: "3:34",
-        src: "https://cdn.freecodecamp.org/curriculum/js-music-player/cruising-for-a-musing.mp3",
-    },
-    {
-        id: 4,
-        title: "Never Not Favored",
-        artist: "Quincy Larson",
-        duration: "3:35",
-        src: "https://cdn.freecodecamp.org/curriculum/js-music-player/never-not-favored.mp3",
-    },
-    {
-        id: 5,
-        title: "From the Ground Up",
-        artist: "Quincy Larson",
-        duration: "3:12",
-        src: "https://cdn.freecodecamp.org/curriculum/js-music-player/from-the-ground-up.mp3",
-    },
-    {
-        id: 6,
-        title: "Walking on Air",
-        artist: "Quincy Larson",
-        duration: "3:25",
-        src: "https://cdn.freecodecamp.org/curriculum/js-music-player/walking-on-air.mp3",
-    },
-    {
-        id: 7,
-        title: "Can't Stop Me. Can't Even Slow Me Down.",
-        artist: "Quincy Larson",
-        duration: "3:52",
-        src: "https://cdn.freecodecamp.org/curriculum/js-music-player/cant-stop-me-cant-even-slow-me-down.mp3",
-    },
-    {
-        id: 8,
-        title: "The Surest Way Out is Through",
-        artist: "Quincy Larson",
-        duration: "3:10",
-        src: "https://cdn.freecodecamp.org/curriculum/js-music-player/the-surest-way-out-is-through.mp3",
-    },
-    {
-        id: 9,
-        title: "Chasing That Feeling",
-        artist: "Quincy Larson",
-        duration: "2:43",
-        src: "https://cdn.freecodecamp.org/curriculum/js-music-player/chasing-that-feeling.mp3",
-    },
-];
+const playlistEl = document.getElementById("playlist-songs");
+const playBtn = document.getElementById("play");
+const pauseBtn = document.getElementById("pause");
+const nextBtn = document.getElementById("next");
+const prevBtn = document.getElementById("previous");
+const songTitleEl = document.getElementById("player-song-title");
+const songArtistEl = document.getElementById("player-song-artist");
 
 const audio = new Audio();
 
-const userData = {
-    songs: allSongs,
-    currentSong: null,
-    songCurrentTime: 0,
-}
+const songs = [
+    { id: 0, title: "Hello World", artist: "Rafael", src: "https://cdn.freecodecamp.org/curriculum/js-music-player/hello-world.mp3" },
+    { id: 1, title: "In the Zone", artist: "Rafael", src: "https://cdn.freecodecamp.org/curriculum/js-music-player/in-the-zone.mp3" },
+    { id: 2, title: "Camper Cat", artist: "Rafael", src: "https://cdn.freecodecamp.org/curriculum/js-music-player/camper-cat.mp3" },
+    { id: 3, title: "Electronic", artist: "Rafael", src: "https://cdn.freecodecamp.org/curriculum/js-music-player/electronic.mp3" },
+    { id: 4, title: "Sailing Away", artist: "Rafael", src: "https://cdn.freecodecamp.org/curriculum/js-music-player/sailing-away.mp3" }
+];
 
-const playSong = id => {
-    const song = userData.songs.find((song) => song.id === id);
-    audio.src = song.src;
-    audio.title = song.title;
-    if (userData.currentSong === null) {
-        audio.currentTime = 0
-    } else {
-        audio.currentTime = userData.songCurrentTime;
+let currentSong = null;
+
+// Render playlist using createElement and append
+const renderPlaylist = () => {
+    playlistEl.innerHTML = '';
+    songs.forEach(song => {
+        const li = document.createElement('li');
+        li.classList.add('playlist-song');
+        li.setAttribute('data-id', song.id);
+
+        const titleSpan = document.createElement('span');
+        titleSpan.textContent = song.title;
+
+        const artistSpan = document.createElement('span');
+        artistSpan.textContent = song.artist;
+
+        li.append(titleSpan, artistSpan);
+        playlistEl.appendChild(li);
+    });
+};
+
+const updateDisplay = (song) => {
+    songTitleEl.textContent = song?.title || '';
+    songArtistEl.textContent = song?.artist || '';
+    document.querySelectorAll('.playlist-song').forEach(el => el.removeAttribute('aria-current'));
+    if (song) {
+        const el = document.querySelector(`.playlist-song[data-id="${song.id}"]`);
+        el?.setAttribute('aria-current', 'true');
     }
-    userData.currentSong = song;
-    playButton.classList.add("playing");
-    audio.play()
-}
+};
 
-const pauseSong = () => {
-    userData.songCurrentTime = audio.currentTime;
-    playButton.classList.remove("playing");
-    audio.pause();
-}
+const playSong = (id) => {
+    const song = songs.find(s => s.id === id);
+    if (!song) return;
+    audio.src = song.src;
+    audio.play();
+    currentSong = song;
+    updateDisplay(song);
+};
 
-playButton.addEventListener("click", () => {
-    if (userData.currentSong === null) {
-        playSong(userData.songs[0].id);
+playlistEl.addEventListener('click', (e) => {
+    const songEl = e.target.closest('.playlist-song');
+    if (!songEl) return;
+    const id = Number(songEl.getAttribute('data-id'));
+    playSong(id);
+});
+
+playBtn.addEventListener('click', () => {
+    if (currentSong) {
+        audio.play();
     } else {
-        playSong(userData.currentSong.id);
+        playSong(0);
     }
 });
 
-const songs = document.querySelectorAll(".playlist-song");
+pauseBtn.addEventListener('click', () => audio.pause());
 
-songs.forEach((song) => {
-    const id = song.getAttribute("id").slice(5);
-    const songBtn = song.querySelector("button");
-    songBtn.addEventListener("click", () => {
-        playSong(Number(id));
-    })
-})
+nextBtn.addEventListener('click', () => {
+    if (!currentSong) return playSong(0);
+    const index = songs.findIndex(s => s.id === currentSong.id);
+    const nextSong = songs[index + 1] || songs[0];
+    playSong(nextSong.id);
+});
 
-pauseButton.addEventListener("click", pauseSong); 
+prevBtn.addEventListener('click', () => {
+    if (!currentSong) return;
+    const index = songs.findIndex(s => s.id === currentSong.id);
+    const prevSong = songs[index - 1] || songs[songs.length - 1];
+    playSong(prevSong.id);
+});
+
+audio.addEventListener('ended', () => nextBtn.click());
+audio.addEventListener('error', () => alert("Failed to load audio."));
+
+renderPlaylist();
