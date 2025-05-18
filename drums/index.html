@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Drum Machine</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="drum-machine">
+        <div id="pad-bank" role="region" aria-label="Drum pads">
+            <button class="drum-pad" id="q-button" aria-label="Play Heater 1 sound">Q
+                <audio src="https://cdn.freecodecamp.org/curriculum/drum/Heater-1.mp3" id="Q"></audio>
+            </button>
+            <button class="drum-pad" id="w-button" aria-label="Play Heater 2 sound">W
+                <audio src="https://cdn.freecodecamp.org/curriculum/drum/Heater-2.mp3" id="W"></audio>
+            </button>
+            <button class="drum-pad" id="e-button" aria-label="Play Heater 3 sound">E
+                <audio src="https://cdn.freecodecamp.org/curriculum/drum/Heater-3.mp3" id="E"></audio>
+            </button>
+            <button class="drum-pad" id="a-button" aria-label="Play Heater 4 sound">A
+                <audio src="https://cdn.freecodecamp.org/curriculum/drum/Heater-4_1.mp3" id="A"></audio>
+            </button>
+            <button class="drum-pad" id="s-button" aria-label="Play Heater 6 sound">S
+                <audio src="https://cdn.freecodecamp.org/curriculum/drum/Heater-6.mp3" id="S"></audio>
+            </button>
+            <button class="drum-pad" id="d-button" aria-label="Play Dsc Oh sound">D
+                <audio src="https://cdn.freecodecamp.org/curriculum/drum/Dsc_Oh.mp3" id="D"></audio>
+            </button>
+            <button class="drum-pad" id="z-button" aria-label="Play Kick n Hat sound">Z
+                <audio src="https://cdn.freecodecamp.org/curriculum/drum/Kick_n_Hat.mp3" id="Z"></audio>
+            </button>
+            <button class="drum-pad" id="x-button" aria-label="Play RP4 Kick 1 sound">X
+                <audio src="https://cdn.freecodecamp.org/curriculum/drum/RP4_KICK_1.mp3" id="X"></audio>
+            </button>
+            <button class="drum-pad" id="c-button" aria-label="Play RP4 Kick 1 sound">C
+                <audio src="https://cdn.freecodecamp.org/curriculum/drum/RP4_KICK_1.mp3" id="C"></audio>
+            </button>
+        </div>
+        <p id="display" role="region" aria-live="polite" aria-atomic="true">Press a pad!</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
