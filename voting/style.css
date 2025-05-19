@@ -1,0 +1,112 @@
+        /* Minimal dark mode palette */
+        body {
+            margin: 0;
+            padding: 2rem;
+            font-family: system-ui, sans-serif;
+            background: #121212;
+            color: #ddd;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        main {
+            width: 100%;
+            max-width: 360px;
+        }
+
+        h1 {
+            font-weight: 400;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        label,
+        legend {
+            font-weight: 500;
+            font-size: 1rem;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 0.5rem 0.4rem;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid #555;
+            color: #ddd;
+            font-size: 1rem;
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+            border-bottom-color: #999;
+        }
+
+        fieldset {
+            border: none;
+            margin: 1.5rem 0;
+            padding: 0;
+        }
+
+        .option {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.8rem;
+        }
+
+        input[type="radio"] {
+            margin-right: 0.6rem;
+        }
+
+        button {
+            width: 100%;
+            padding: 0.6rem 0;
+            background: none;
+            border: 1px solid #555;
+            color: #ddd;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: border-color 0.2s;
+        }
+
+        button:hover,
+        button:focus {
+            border-color: #999;
+            outline: none;
+        }
+
+        .results {
+            margin-top: 2rem;
+        }
+
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            margin-bottom: 0.6rem;
+        }
+
+        .bar {
+            height: 6px;
+            background: #666;
+            border-radius: 3px;
+            margin-left: 1rem;
+            flex-grow: 1;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bar-inner {
+            height: 100%;
+            background: #ddd;
+            border-radius: 3px 0 0 3px;
+            transition: width 0.3s ease;
+        }
+
+        @media (max-width: 400px) {
+            body {
+                padding: 1rem;
+            }
+        }

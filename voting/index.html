@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Minimalist Voting</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main>
+        <h1 id="pollTitle">Vote for Your Favorite Fruit</h1>
+        <form id="pollForm" aria-labelledby="pollTitle">
+            <label for="voterId">Voter ID</label>
+            <input type="text" id="voterId" name="voterId" required autocomplete="off" aria-required="true" />
+
+            <fieldset>
+                <legend>Choose one</legend>
+
+                <div class="option">
+                    <input type="radio" id="apple" name="fruit" value="Apple" required />
+                    <label for="apple">Apple</label>
+                </div>
+                <div class="option">
+                    <input type="radio" id="banana" name="fruit" value="Banana" />
+                    <label for="banana">Banana</label>
+                </div>
+                <div class="option">
+                    <input type="radio" id="orange" name="fruit" value="Orange" />
+                    <label for="orange">Orange</label>
+                </div>
+                <div class="option">
+                    <input type="radio" id="grape" name="fruit" value="Grape" />
+                    <label for="grape">Grape</label>
+                </div>
+            </fieldset>
+
+            <button type="submit" aria-live="polite">Submit Vote</button>
+        </form>
+
+        <section class="results" aria-live="polite" aria-atomic="true" aria-label="Voting Results">
+            <h2 style="font-weight: 400; font-size: 1.2rem;">Results</h2>
+            <div id="resultsContainer" role="list"></div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
