@@ -20,7 +20,6 @@ main {
 
 body {
     background-color: var(--dark-grey);
-    font-family: Arial, sans-serif;
 }
 
 .hidden {
@@ -31,11 +30,6 @@ section {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-top: 60px;
-    border: 2px solid var(--golden-yellow);
-    width: fit-content;
-    border-radius: 10px;
-    padding: 20px;
 }
 
 select,
@@ -45,24 +39,25 @@ label {
 }
 
 div {
-    padding: 10px;
+    padding: 30px;
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
+}
+
+.close-form-button {
+    background: none;
+    border: none;
+    cursor: pointer;
 }
 
 h1,
 h2 {
     margin-top: 20px;
     text-align: center;
-    color: var(--light-grey);
-}
-
-label {
-    color: var(--light-grey);
 }
 
 #category-list {
+    text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -71,41 +66,38 @@ label {
     width: 80%;
     margin-top: 15px;
     border-radius: 10px;
-    padding: 10px;
 }
 
-.bookmark-item {
+#category-list,
+h1,
+h2,
+label {
+    color: var(--light-grey);
+}
+
+#category-list p {
     color: var(--dark-grey);
-    background-color: white;
-    padding: 10px;
-    margin: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.bookmark-item:hover {
-    background-color: #eee;
-}
-
-.bookmark-item.selected {
-    background-color: #d9534f;
-    color: white;
 }
 
 button {
     cursor: pointer;
     padding: 5px;
-    width: 120px;
+    width: 100px;
     margin: 10px;
     color: var(--dark-grey);
     background-color: var(--golden-yellow);
     background-image: linear-gradient(#fecc4c, #ffac33);
     border-color: var(--golden-yellow);
     border-width: 3px;
-    border-radius: 5px;
 }
 
 button:hover {
     background-image: linear-gradient(#ffcc4c, #f89808);
+}
+
+section {
+    margin-top: 60px;
+    border: 2px solid var(--golden-yellow);
+    width: fit-content;
+    border-radius: 10px;
 }
