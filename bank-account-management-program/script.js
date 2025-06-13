@@ -1,58 +1,63 @@
-// Define the BankAccount class
 class BankAccount {
-    constructor() {
-      this.balance = 0;
-      this.transactions = [];
-    }
-  
-    deposit(amount) {
-      if (amount > 0) {
-        this.transactions.push({ type: 'deposit', amount: amount });
-        this.balance += amount;
-        return `Successfully deposited $${amount}. New balance: $${this.balance}`;
-      } else {
-        return "Deposit amount must be greater than zero.";
-      }
-    }
-  
-    withdraw(amount) {
-      if (amount > 0 && amount <= this.balance) {
-        this.transactions.push({ type: 'withdraw', amount: amount });
-        this.balance -= amount;
-        return `Successfully withdrew $${amount}. New balance: $${this.balance}`;
-      } else {
-        return "Insufficient balance or invalid amount.";
-      }
-    }
-  
-    checkBalance() {
-      return `Current balance: $${this.balance}`;
-    }
-  
-    listAllDeposits() {
-      const deposits = this.transactions
-        .filter(t => t.type === 'deposit')
-        .map(t => t.amount);
-      return `Deposits: ${deposits.join(',')}`;
-    }
-  
-    listAllWithdrawals() {
-      const withdrawals = this.transactions
-        .filter(t => t.type === 'withdraw')
-        .map(t => t.amount);
-      return `Withdrawals: ${withdrawals.join(',')}`;
-    }
+  constructor() {
+    const savedData = JSON.parse(localStorage.getItem('bankAccount'));
+    this.balance = savedData?.balance || 0;
+    this.transactions = savedData?.transactions || [];
+    this.updateUI();
   }
-  
-  // Create an instance named myAccount
-  const myAccount = new BankAccount();
-  
-  // Add at least five transactions: 3 deposits, 2 withdrawals
-  myAccount.deposit(150);    // Deposit #1
-  myAccount.deposit(50);     // Deposit #2
-  myAccount.deposit(30);     // Deposit #3
-  myAccount.withdraw(40);    // Withdrawal #1
-  myAccount.withdraw(20);    // Withdrawal #2
-  
-  // At this point, total deposits = 230, withdrawals = 60, balance = 170 (which is > 100)
-  
+
+  saveToStorage() {
+    localStorage.setItem(
+      'bankAccount',
+      JSON.stringify({ balance: this.balance, transactions: this.transactions })
+    );
+  }
+
+  deposit(amount) {
+    if (amount > 0) {
+      this.transactions.push({ type: 'deposit', amount });
+      this.balance += amount;
+      this.saveToStorage();
+      this.updateUI();
+      return true;
+    }
+    alert("Enter a valid deposit amount.");
+    return false;
+  }
+
+  withdraw(amount) {
+    if (amount > 0 && amount <= this.balance) {
+      this.transactions.push({ type: 'withdraw', amount });
+      this.balance -= amount;
+      this.saveToStorage();
+      this.updateUI();
+      return true;
+    }
+    alert("Invalid or insufficient amount.");
+    return false;
+  }
+
+  updateUI() {
+    document.getElementById('balance').textContent = `₱${this.balance.toFixed(2)}`;
+    const deposits = this.transactions.filter(t => t.type === 'deposit');
+    const withdrawals = this.transactions.filter(t => t.type === 'withdraw');
+
+    const depositHistory = deposits.map(t => `<p>+₱${t.amount}</p>`).join('');
+    const withdrawHistory = withdrawals.map(t => `<p>-₱${t.amount}</p>`).join('');
+
+    document.getElementById('deposit-history').innerHTML = `<h4>Deposits</h4>${depositHistory || '<p>No deposits yet.</p>'}`;
+    document.getElementById('withdraw-history').innerHTML = `<h4>Withdrawals</h4>${withdrawHistory || '<p>No withdrawals yet.</p>'}`;
+  }
+}
+
+const myAccount = new BankAccount();
+
+document.getElementById('deposit').addEventListener('click', () => {
+  const amount = parseFloat(prompt("Enter amount to deposit:"));
+  myAccount.deposit(amount);
+});
+
+document.getElementById('withdraw').addEventListener('click', () => {
+  const amount = parseFloat(prompt("Enter amount to withdraw:"));
+  myAccount.withdraw(amount);
+});

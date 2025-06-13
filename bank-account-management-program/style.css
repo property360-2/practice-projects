@@ -1,0 +1,72 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #121212;
+    color: #e0e0e0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Card layout */
+.card {
+    background-color: #1e1e1e;
+    border-radius: 20px;
+    padding: 2rem;
+    width: 360px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+}
+
+/* Top section */
+.top-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.top-right-btn {
+    display: flex;
+    flex-direction: row;
+}
+
+#balance {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #00ffcc;
+}
+
+/* Button styles */
+.btn {
+    background-color: #292929;
+    color: #00ffcc;
+    border: 2px solid #00ffcc;
+    padding: 0.5rem 1rem;
+    margin-left: 0.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+    background-color: #00ffcc;
+    color: #121212;
+    transform: scale(1.05);
+}
+
+/* History sections */
+.history {
+    margin-top: 1rem;
+    padding: 0.5rem;
+    background-color: #2a2a2a;
+    border-radius: 10px;
+    min-height: 50px;
+    font-size: 0.9rem;
+}
