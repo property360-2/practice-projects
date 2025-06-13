@@ -9,17 +9,22 @@
 </head>
 
 <body>
-    <main>
-        <section class="card">
+    <main role="main">
+        <section class="card" aria-labelledby="account-summary">
+            <header>
+                <h1 id="account-summary">Bank Account Summary</h1>
+            </header>
+
             <div class="top-section">
-                <p id="balance">₱0.00</p>
+                <p id="balance" aria-live="polite" role="status">₱0.00</p>
                 <div class="top-right-btn">
-                    <button id="deposit" class="btn">Deposit</button>
-                    <button id="withdraw" class="btn">Withdraw</button>
+                    <button id="deposit" class="btn" aria-label="Deposit funds">Deposit</button>
+                    <button id="withdraw" class="btn" aria-label="Withdraw funds">Withdraw</button>
                 </div>
             </div>
-            <div id="withdraw-history" class="history"></div>
-            <div id="deposit-history" class="history"></div>
+
+            <div id="withdraw-history" class="history" aria-label="Withdrawals history" tabindex="0"></div>
+            <div id="deposit-history" class="history" aria-label="Deposits history" tabindex="0"></div>
         </section>
     </main>
     <script src="script.js"></script>

@@ -70,3 +70,17 @@ body {
     min-height: 50px;
     font-size: 0.9rem;
 }
+
+/* Ensure visible focus for keyboard users */
+button:focus,
+.btn:focus {
+    outline: 3px solid #00ffcc;
+    outline-offset: 2px;
+}
+
+/* Headings and status */
+h1 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #ffffff;
+}
